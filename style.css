@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", Courier, monospace;
+}
+body {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  min-block-size: 100dvh;
+  background: linear-gradient(150deg, rgb(42, 86, 9), rgba(97, 3, 106, 0.704));
+}
+
+.card__Container {
+    position: relative;
+  background-image: linear-gradient(
+    to top right,
+    rgba(1, 11, 59, 0.729),
+    rgba(9, 9, 111, 0.701)
+  );
+  text-shadow: 0 0 0.3rem currentColor;
+  transform-style: preserve-3d;
+  transform: perspective(8000px) rotateY(var(--y-axis)) rotateX(var(--x-axis));
+  width: fit-content;
+  height: min(30%, 200px);
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-style: italic;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+
+    & span{
+        color: red;
+        font-size: 5rem;
+    }
+}
+
+.card__Container::before,
+.card__Container::after{
+    content: "";
+    position: absolute;
+    transform: translateZ(-65px);
+}
+
+
+.card__Container::before{
+    background: rgba(223, 221, 165, 0.779);
+    inset: -0.5rem;
+    opacity: 0.3;
+    filter: blur(55px);
+}
+.card__Container::after{
+
+    box-shadow: 0 0 15px rgb(158, 134, 134);
+    background: linear-gradient(to top left, rgba(75, 50, 2, 0.901), rgb(4, 67, 143));
+    border-radius: inherit;
+    inset: 0;
+    z-index: -2;
+}
